@@ -53,7 +53,7 @@ public class MenuController {
     }
 
     @RequestMapping(value = "view/{id}", method = RequestMethod.GET)
-    public String viewMenu(Model model, @PathVariable @NotNull int id) {
+    public String viewMenu(Model model, @PathVariable int id) {
 
         Menu menu = menuDao.findOne(id);
         model.addAttribute("title", menu.getName());
@@ -72,7 +72,7 @@ public class MenuController {
         return"menu/add-item";
     }
 
-    @RequestMapping(value="/add-item", method = RequestMethod.POST)
+    @RequestMapping(value="add-item", method = RequestMethod.POST)
     public String addItem(Model model, @ModelAttribute @Valid AddMenuItemForm form,
                           Errors errors){
 
